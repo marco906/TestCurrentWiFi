@@ -8,17 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		A9DF427828C7361100A90878 /* TestCurrentWiFiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DF427728C7361100A90878 /* TestCurrentWiFiApp.swift */; };
-		A9DF427A28C7361100A90878 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DF427928C7361100A90878 /* ContentView.swift */; };
 		A9DF427C28C7361300A90878 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9DF427B28C7361300A90878 /* Assets.xcassets */; };
 		A9DF427F28C7361300A90878 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9DF427E28C7361300A90878 /* Preview Assets.xcassets */; };
+		A9DF428828C738B700A90878 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9DF428728C738B700A90878 /* NetworkExtension.framework */; };
+		A9DF428A28C739D100A90878 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DF428928C739D100A90878 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A9DF427428C7361100A90878 /* TestCurrentWiFi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestCurrentWiFi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9DF427728C7361100A90878 /* TestCurrentWiFiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCurrentWiFiApp.swift; sourceTree = "<group>"; };
-		A9DF427928C7361100A90878 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A9DF427B28C7361300A90878 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9DF427E28C7361300A90878 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A9DF428528C7366500A90878 /* TestCurrentWiFi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestCurrentWiFi.entitlements; sourceTree = "<group>"; };
+		A9DF428728C738B700A90878 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
+		A9DF428928C739D100A90878 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9DF428828C738B700A90878 /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,6 +41,7 @@
 			children = (
 				A9DF427628C7361100A90878 /* TestCurrentWiFi */,
 				A9DF427528C7361100A90878 /* Products */,
+				A9DF428628C738B700A90878 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,8 +56,9 @@
 		A9DF427628C7361100A90878 /* TestCurrentWiFi */ = {
 			isa = PBXGroup;
 			children = (
+				A9DF428528C7366500A90878 /* TestCurrentWiFi.entitlements */,
 				A9DF427728C7361100A90878 /* TestCurrentWiFiApp.swift */,
-				A9DF427928C7361100A90878 /* ContentView.swift */,
+				A9DF428928C739D100A90878 /* LocationManager.swift */,
 				A9DF427B28C7361300A90878 /* Assets.xcassets */,
 				A9DF427D28C7361300A90878 /* Preview Content */,
 			);
@@ -65,6 +71,14 @@
 				A9DF427E28C7361300A90878 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A9DF428628C738B700A90878 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A9DF428728C738B700A90878 /* NetworkExtension.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9DF427A28C7361100A90878 /* ContentView.swift in Sources */,
+				A9DF428A28C739D100A90878 /* LocationManager.swift in Sources */,
 				A9DF427828C7361100A90878 /* TestCurrentWiFiApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,12 +278,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TestCurrentWiFi/TestCurrentWiFi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TestCurrentWiFi/Preview Content\"";
 				DEVELOPMENT_TEAM = 8Q24JJ6J4V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Gather location updates to get SSID";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Gather location updates to get SSID";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -293,12 +310,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TestCurrentWiFi/TestCurrentWiFi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TestCurrentWiFi/Preview Content\"";
 				DEVELOPMENT_TEAM = 8Q24JJ6J4V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Gather location updates to get SSID";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Gather location updates to get SSID";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
