@@ -63,16 +63,14 @@ struct ContentView: View {
             }
         
         } else {
-            // MARK: old API CNCopyCurrentNetworkInfo for iOS 11 to 13
+            // MARK: lagacy API CNCopyCurrentNetworkInfo for iOS 11 to 13
             guard let interfaceNames = CNCopySupportedInterfaces() as? [String] else {
                 return
             }
-            
             for interfaceName in interfaceNames {
                 guard let info = CNCopyCurrentNetworkInfo(interfaceName as CFString) as? [String: AnyObject] else {
                     continue
                 }
-                
                 guard let ssid = info[kCNNetworkInfoKeySSID as String] as? String else {
                     continue
                 }
